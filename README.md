@@ -1,6 +1,6 @@
-# libsodium-schnorr Enterprise — The Halimaw Edition
+# libsodium-schnorr Enterprise — Beyond Your Lifetime Career
 
-**Recursive Fractal Schnorr Σ-Protocol (secp256k1) + Bitcoin SHRINCS + φ | 7/7 Tests | CI/CD Green**
+**Recursive Fractal Schnorr Σ-Protocol (secp256k1) + Bitcoin SHRINCS + φ | 7/7 Tests | CI/CD Green
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-7%2F7-brightgreen)]()
@@ -30,7 +30,7 @@ But I don't care anymore. This repo exists. The code works. The tests pass. The 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ff69b4', 'primaryTextColor': '#000000', 'primaryBorderColor': '#ff1493', 'lineColor': '#ff69b4', 'tertiaryColor': '#1a1a1a', 'background': '#1a1a1a', 'mainBkg': '#1a1a1a', 'nodeBorder': '#ff69b4', 'clusterBkg': '#1a1a1a', 'clusterBorder': '#ff69b4', 'titleColor': '#ff69b4', 'edgeLabelBackground': '#1a1a1a', 'nodeTextColor': '#000000'}}}%%
 graph TB
-    subgraph "THE HALIMAW EDITION"
+    subgraph "BEYOND YOUR LIFETIME CAREER"
         A[Message] -->|Fractal Sign| B[Root Signature]
         B -->|Depth 0| C[Child 1]
         B -->|Depth 0| D[Child 2]
@@ -85,7 +85,7 @@ cd libsodium-schnorr
 gcc -std=c11 -O3 -I include src/schnorr/schnorr.c test/quick_test.c -lssl -lcrypto -o test_quick
 ./test_quick
 
-# Halimaw Ultimate Test (5/5)
+# Beyond Your Lifetime Career Ultimate Test (5/5)
 gcc -std=c11 -O3 -I include -I src/bitcoin -I src/fractal \
     src/schnorr/schnorr.c src/bitcoin/shrincs.c \
     src/fractal/schnorr_fractal.c src/fractal/shrincs_fractal.c \
