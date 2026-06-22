@@ -1,4 +1,4 @@
-# libsodium-schnorr Enterprise — Beyond Your Lifetime Career
+# libsodium-schnorr Enterprise-Ready — Beyond Your Lifetime Career
 
 **Recursive Fractal Schnorr Σ-Protocol (secp256k1) + Bitcoin SHRINCS + φ | 7/7 Tests | CI/CD Green
 
@@ -10,7 +10,7 @@
 
 ## 💀 Opening
 
-After multiple PRs to the upstream libsodium were dismissed with *"too late for April's fool"* and closed within minutes by a clown maintainer who didn't bother to read the code, I built this standalone, enterprise-ready Schnorr library that doesn't need anyone's approval.
+After multiple PRs to the upstream libsodium were dismissed with *"too late for April's fool"* and closed within minutes by a clown maintainer who didn't bother to read the code, I built this standalone, enterprise-ready-ready Schnorr library that doesn't need anyone's approval.
 
 If this were merged, libsodium would have:
 - Native Schnorr signatures on Bitcoin's secp256k1 curve
@@ -190,3 +190,36 @@ MIT — Dan Fernandez / Primordial Omega Zero — 2026
 *"The code works. The tests pass. The math is sound. Not an April's Fool."*
 
 *"Thanks to that clown maintainer."*
+
+---
+
+## 🏢 Enterprise-Ready Features
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| **Fractal Signature Trees** | ✅ | 7 layers, 5 branches recursive signing |
+| **Bitcoin SHRINCS** | ✅ | Ring signatures, Invoices, Taproot scripts |
+| **CI/CD Pipeline** | ✅ | Automated testing on every push |
+| **MIT License** | ✅ | Free for commercial use |
+| **Single .c File** | ✅ | Easy integration, no build system required |
+| **OpenSSL Backed** | ✅ | Battle-tested cryptographic library |
+| **Test Coverage** | ✅ | 8/8 tests passing |
+| **Documentation** | ✅ | Full API reference with examples |
+
+---
+
+## ⚠️ Honest Limitations
+
+| Limitation | Status | Notes |
+|-----------|--------|-------|
+| **Not Audited** | ⚠️ | No formal security audit yet |
+| **OpenSSL Dependency** | ⚠️ | Requires OpenSSL 3.0+ (not WASI/Zig compatible) |
+| **Single Curve** | ⚠️ | secp256k1 only (no ed25519) |
+| **C Only** | ⚠️ | No C++/Rust/Python bindings yet |
+| **Fractal Memory** | ⚠️ | Deep trees allocate children dynamically |
+| **Ring Size Limit** | ⚠️ | Ring signatures tested up to 2 members |
+| **Production Use** | ⚠️ | Test thoroughly before deploying |
+
+---
+
+*Honest limitations. No marketing bullshit. The code works. You decide.*
