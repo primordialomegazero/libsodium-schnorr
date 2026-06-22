@@ -1,3 +1,4 @@
+
 #include <openssl/ec.h>
 #include <openssl/bn.h>
 #include <openssl/obj_mac.h>
@@ -73,7 +74,6 @@ int schnorr_verify(const unsigned char *sig, size_t sig_len,
     return result;
 }
 
-// libsodium-compatible wrappers
 int crypto_sign_schnorr_keypair(unsigned char *pk, unsigned char *sk) {
     if (!pk || !sk) return -1;
     return schnorr_keypair(pk, sk);
@@ -95,3 +95,4 @@ int crypto_sign_schnorr_verify(const unsigned char *msg, unsigned long long msgl
     if (!msg || !sig || !pk) return -1;
     return schnorr_verify(sig, (size_t)siglen, msg, (size_t)msglen, pk);
 }
+

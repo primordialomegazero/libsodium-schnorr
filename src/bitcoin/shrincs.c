@@ -1,5 +1,5 @@
 #include "shrincs.h"
-#include "schnorr/schnorr.h"
+#include "../../include/schnorr.h"
 #include <string.h>
 #include <stdio.h>
 
