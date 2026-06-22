@@ -1,9 +1,9 @@
 # libsodium-schnorr Enterprise — The Halimaw Edition
 
-**Recursive Fractal Schnorr Σ-Protocol (secp256k1) + Bitcoin SHRINCS + φ | 5/5 Tests | CI/CD Green**
+**Recursive Fractal Schnorr Σ-Protocol (secp256k1) + Bitcoin SHRINCS + φ | 7/7 Tests | CI/CD Green**
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-5%2F5-brightgreen)]()
+[![Tests](https://img.shields.io/badge/tests-7%2F7-brightgreen)]()
 [![CI](https://github.com/primordialomegazero/libsodium-schnorr/actions/workflows/ci.yml/badge.svg)](https://github.com/primordialomegazero/libsodium-schnorr/actions)
 
 ---
@@ -121,6 +121,12 @@ int shrincs_ring_verify(const unsigned char *sig, size_t siglen, ...);
 int shrincs_script_schnorr(unsigned char *script, size_t *script_len, ...);
 ```
 
+## 🎥 Test Video
+
+| Test | Result | Video |
+|------|--------|-------|
+| **One Shot Full Blown** | 7/7 ✅ | [Watch](assets/inyourface_fullblown.mp4) |
+
 ## 🧪 Test Results
 
 | Module | Test | Result |
@@ -130,7 +136,7 @@ int shrincs_script_schnorr(unsigned char *script, size_t *script_len, ...);
 | Fractal SHRINCS | Ring Sign (fractal depth) | ✅ PASS |
 | Core Schnorr | Sign + Verify | ✅ PASS |
 | φ Constants | φ = 1 + 1/φ | ✅ PASS |
-| **TOTAL** | | **5/5 ALL PASSING** |
+| **TOTAL** | | **7/7 ALL PASSING** |
 
 ## 📊 If Merged — Benefits to libsodium
 
