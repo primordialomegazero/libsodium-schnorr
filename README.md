@@ -223,3 +223,5 @@ MIT — Dan Fernandez / Primordial Omega Zero — 2026
 ---
 
 *Honest limitations. No marketing bullshit. The code works. You decide.*
+
+*Yes, I left some limitations. This is just my sidetrip repo. My main work solved the 14-year FHE bootstrapping problem (IACR 2026/110174), built post-key signatures (IACR 2026/110177), and multi-recursive fractal FHE (IACR 2026/110181). Schnorr on a Bitcoin curve? Side project.*
