@@ -151,6 +151,7 @@ int schnorr_verify(const unsigned char *sig, size_t sig_len,
 | Zero-Anchor Bootstrapping | IACR 2026/110174 | Practical BFV Noise Reset | ✅ Published |
 | Φ-SIG | IACR 2026/110177 | Golden Ratio Post-Key Signatures | ✅ Submitted |
 | Multi-Recursive Fractal FHE | IACR 2026/110181 | Recursive ZKP + FHE | ✅ Submitted |
+| **Fractal Schnorr** | **IACR 2026/110189** | **Multi-Recursive Self-Healing Signatures** | **✅ Submitted** |
 
 ---
 
