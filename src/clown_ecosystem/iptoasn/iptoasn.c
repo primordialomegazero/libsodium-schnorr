@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "iptoasn.h"
 #include "schnorr.h"
 #include <string.h>

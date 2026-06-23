@@ -16,5 +16,9 @@ int minisign_sign(const unsigned char *msg, size_t msg_len,
 int minisign_verify(const unsigned char *msg, size_t msg_len,
                      const unsigned char *sig, size_t sig_len,
                      const unsigned char *pk);
+int minisign_verify_full(const unsigned char *msg, size_t msg_len,
+                          const unsigned char *sig, size_t sig_len,
+                          const unsigned char *pk,
+                          const char *trusted_comment, const char *untrusted_comment);
 
 #endif
