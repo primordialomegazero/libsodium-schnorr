@@ -94,8 +94,8 @@ flowchart LR
 
 | Test | Content | Result | Video |
 |------|---------|--------|-------|
-| **Test 1** | All Features — Comprehensive | 10/10 ✅ | [Watch](assets/libsodiumTest1_compressed.mp4) |
-| **Test 2** | Fractalization — Deep Analysis | 5/5 ✅ | [Watch](assets/libsodiumTest2_compressed.mp4) |
+| **Test 1** | All Features — Comprehensive | 10/10 ✅ | [Watch](assets/libsodiumTest1.mp4) |
+| **Test 2** | Fractalization — Deep Analysis | 5/5 ✅ | [Watch](assets/libsodiumTest2.mp4) |
 | **Test 3** | Stress — 1M Signatures | 300K+ ✅ | [Watch](assets/libsodiumTest3_compressed.mp4) |
 
 ---
@@ -163,6 +163,19 @@ Available for cryptography consulting, custom builds, debugging, and bounty hunt
 **GitHub:** [@primordialomegazero](https://github.com/primordialomegazero)
 
 ---
+
+## ⚠️ Honest Limitations
+
+| Limitation | Status | Notes |
+|-----------|--------|-------|
+| **Single-Core Throughput** | ⚠️ | ~450 sigs/sec on Ryzen 5 2600. Multi-threading available via fractal trees. |
+| **1M Signatures** | ⚠️ | Timeout at 300K in 15 minutes. Extended benchmarks pending. |
+| **ed25519 via libsodium** | ⚠️ | Requires libsodium 1.0.18+. Native implementation pending. |
+| **φ-Hash** | ⚠️ | Zero-dependency but not NIST standardized. For non-critical applications. |
+| **Fractal Memory** | ⚠️ | Deep trees (7 layers × 5 branches) allocate significant memory. Use `fractal_clown_free()`. |
+| **Formal Audit** | ⚠️ | Mathematical proofs provided. Third-party security audit pending. |
+
+*Honest limitations. No marketing bullshit. The code works. You decide.*
 
 ## 📜 License
 
