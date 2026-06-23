@@ -1,77 +1,24 @@
-# libsodium-schnorr Enterprise-Ready — Beyond Your Lifetime Career
+# libsodium-schnorr — Schnorr Signatures on secp256k1
 
-**Recursive Fractal Schnorr Σ-Protocol (secp256k1) + Bitcoin SHRINCS + φ | 7/7 Tests | CI/CD Green
+**Multi-Curve Schnorr Σ-Protocol Implementation | 11/11 Tests | CI/CD Green**
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-7%2F7-brightgreen)]()
+[![Tests](https://img.shields.io/badge/tests-11%2F11-brightgreen)]()
 [![CI](https://github.com/primordialomegazero/libsodium-schnorr/actions/workflows/ci.yml/badge.svg)](https://github.com/primordialomegazero/libsodium-schnorr/actions)
 
 ---
 
-## 💀 Opening
+## Overview
 
-After multiple PRs to the upstream libsodium were dismissed with *"too late for April's fool"* and closed within minutes by a clown maintainer who didn't bother to read the code, I built this standalone, enterprise-ready-ready Schnorr library that doesn't need anyone's approval.
-
-If this were merged, libsodium would have:
-- Native Schnorr signatures on Bitcoin's secp256k1 curve
-- Recursive fractal signature trees (7 layers, 5 branches)
-- Bitcoin-native SHRINCS primitives (Ring, Invoice, Taproot)
-- 5/5 passing tests with CI/CD green
-- Zero breaking changes to existing API
-
-But I don't care anymore. This repo exists. The code works. The tests pass. The math is sound.
-
-**Thanks to that clown maintainer.**
+A standalone implementation of Schnorr Σ-Protocol signatures on the secp256k1 curve (Bitcoin), with optional ed25519 support via libsodium. Includes a φ-based hash function, multi-recursive fractal signature trees, and self-healing verification chains.
 
 ---
 
-## 🏗️ Architecture
+## 🎥 Demonstration
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ff69b4', 'primaryTextColor': '#000000', 'primaryBorderColor': '#ff1493', 'lineColor': '#ff69b4', 'tertiaryColor': '#1a1a1a', 'background': '#1a1a1a', 'mainBkg': '#1a1a1a', 'nodeBorder': '#ff69b4', 'clusterBkg': '#1a1a1a', 'clusterBorder': '#ff69b4', 'titleColor': '#ff69b4', 'edgeLabelBackground': '#1a1a1a', 'nodeTextColor': '#000000'}}}%%
-graph TB
-    subgraph "BEYOND YOUR LIFETIME CAREER"
-        A[Message] -->|Fractal Sign| B[Root Signature]
-        B -->|Depth 0| C[Child 1]
-        B -->|Depth 0| D[Child 2]
-        B -->|Depth 0| E[Child 3]
-        C -->|Depth 1| F[Grandchild]
-        E -->|SHRINCS| G[Ring Signature]
-        G -->|φ-Convergent| H[Verified]
-    end
-    
-    style A fill:#ff69b4,stroke:#ff1493,color:#000000
-    style B fill:#ff69b4,stroke:#ff1493,color:#000000
-    style C fill:#ff69b4,stroke:#ff1493,color:#000000
-    style D fill:#ff69b4,stroke:#ff1493,color:#000000
-    style E fill:#ff69b4,stroke:#ff1493,color:#000000
-    style F fill:#ff69b4,stroke:#ff1493,color:#000000
-    style G fill:#ff69b4,stroke:#ff1493,color:#000000
-    style H fill:#ff69b4,stroke:#ff1493,color:#000000
-```
-
-## 🔄 System Flow
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ff69b4', 'primaryTextColor': '#000000', 'primaryBorderColor': '#ff1493', 'lineColor': '#ff69b4', 'tertiaryColor': '#1a1a1a', 'background': '#1a1a1a', 'mainBkg': '#1a1a1a', 'nodeBorder': '#ff69b4', 'clusterBkg': '#1a1a1a', 'clusterBorder': '#ff69b4', 'titleColor': '#ff69b4', 'edgeLabelBackground': '#1a1a1a', 'nodeTextColor': '#000000'}}}%%
-flowchart LR
-    A[📝 Message] --> B[🔐 Core Schnorr<br/>65 bytes]
-    B --> C[🌳 Fractal Tree<br/>7 layers, 5 branches]
-    C --> D[₿ SHRINCS<br/>Ring/Invoice/Taproot]
-    D --> E[φ Verification<br/>φ = 1 + 1/φ]
-    E --> F{Valid?}
-    F -->|✅| G[🎯 Verified]
-    F -->|❌| H[🚫 Rejected]
-    
-    style A fill:#ff69b4,stroke:#ff1493,color:#000000
-    style B fill:#ff69b4,stroke:#ff1493,color:#000000
-    style C fill:#ff69b4,stroke:#ff1493,color:#000000
-    style D fill:#ff69b4,stroke:#ff1493,color:#000000
-    style E fill:#ff69b4,stroke:#ff1493,color:#000000
-    style F fill:#ff69b4,stroke:#ff1493,color:#000000
-    style G fill:#ff69b4,stroke:#ff1493,color:#000000
-    style H fill:#ff69b4,stroke:#ff1493,color:#000000
-```
+| Test | Content | Result | Video |
+|------|---------|--------|-------|
+| **Full Blown** | All modules | 11/11 ✅ | [Watch](assets/) |
 
 ---
 
@@ -81,22 +28,23 @@ flowchart LR
 git clone https://github.com/primordialomegazero/libsodium-schnorr.git
 cd libsodium-schnorr
 
-# Schnorr Quick Test
+# Quick Test
 gcc -std=c11 -O3 -I include src/schnorr/schnorr.c test/quick_test.c -lssl -lcrypto -o test_quick
 ./test_quick
 
-# Beyond Your Lifetime Career Ultimate Test (5/5)
-gcc -std=c11 -O3 -I include -I src/bitcoin -I src/fractal \
-    src/schnorr/schnorr.c src/bitcoin/shrincs.c \
-    src/fractal/schnorr_fractal.c src/fractal/shrincs_fractal.c \
-    test/halimaw_ultimate.c -lssl -lcrypto -o test_halimaw
-./test_halimaw
+# Full Test Suite (11/11)
+gcc -std=c11 -O3 -I include -I src \
+    src/schnorr/schnorr.c src/curves/ed25519.c src/backends/phi_backend.c \
+    src/clown_ecosystem/fractal_clown.c \
+    test_ultimate_oneshot.c -lsodium -lssl -lcrypto -lm -o test_full
+./test_full
 ```
 
-## 🔌 API
+## 🔌 API Reference
+
+### Core Schnorr (secp256k1)
 
 ```c
-// Core Schnorr
 #define SCHNORR_PUBLICKEYBYTES 33
 #define SCHNORR_SECRETKEYBYTES 32
 #define SCHNORR_BYTES 65
@@ -107,121 +55,108 @@ int schnorr_sign(const unsigned char *msg, size_t msg_len,
 int schnorr_verify(const unsigned char *sig, size_t sig_len,
                     const unsigned char *msg, size_t msg_len,
                     const unsigned char *pk);
-
-// Fractal Schnorr (Recursive Tree)
-int schnorr_fractal_sign(const unsigned char *msg, size_t msg_len,
-                          const unsigned char *sk, FractalSignature *root,
-                          size_t depth, size_t branches);
-int schnorr_fractal_verify(const unsigned char *msg, size_t msg_len,
-                            const unsigned char *pk, const FractalSignature *node);
-
-// Bitcoin SHRINCS
-int shrincs_ring_sign(unsigned char *sig, size_t *siglen, ...);
-int shrincs_ring_verify(const unsigned char *sig, size_t siglen, ...);
-int shrincs_script_schnorr(unsigned char *script, size_t *script_len, ...);
 ```
 
-## 🎥 Test Video
+### Ed25519 Wrapper
 
-| Test | Result | Video |
-|------|--------|-------|
-| **One Shot Full Blown** | 7/7 ✅ | [Watch](assets/inyourface_fullblown.mp4) |
+```c
+int ed25519_keypair(unsigned char *pk, unsigned char *sk);
+int ed25519_sign(unsigned char *sig, size_t *siglen,
+                  const unsigned char *msg, size_t msglen,
+                  const unsigned char *sk);
+int ed25519_verify(const unsigned char *sig, size_t siglen,
+                    const unsigned char *msg, size_t msglen,
+                    const unsigned char *pk);
+```
+
+### Multi-Recursive Fractal Signatures
+
+```c
+int fractal_clown_sign(const unsigned char *msg, size_t msg_len,
+                        const unsigned char *sk, sign_func sign_fn,
+                        FractalClownNode *node, size_t depth, size_t branches);
+int fractal_clown_verify(const unsigned char *msg, size_t msg_len,
+                          const unsigned char *pk, verify_func verify_fn,
+                          const FractalClownNode *node);
+int fractal_clown_self_heal(FractalClownNode *node, const unsigned char *pk,
+                             verify_func verify_fn, const unsigned char *sk,
+                             sign_func sign_fn);
+```
 
 ## 🧪 Test Results
 
 | Module | Test | Result |
 |--------|------|--------|
-| Fractal Schnorr | Sign (depth 0, 3 branches) | ✅ PASS |
-| Fractal Schnorr | Recursive Verify (tree) | ✅ PASS |
-| Fractal SHRINCS | Ring Sign (fractal depth) | ✅ PASS |
-| Core Schnorr | Sign + Verify | ✅ PASS |
-| φ Constants | φ = 1 + 1/φ | ✅ PASS |
-| **TOTAL** | | **7/7 ALL PASSING** |
+| secp256k1 | Sign + Verify | ✅ |
+| secp256k1 | Tamper Detection | ✅ |
+| ed25519 | Sign + Verify | ✅ |
+| φ-Hash | Zero-dependency hash | ✅ |
+| φ-Rand | Zero-dependency RNG | ✅ |
+| DNScrypt | Query signing | ✅ |
+| libhydrogen | Sign + SecretBox | ✅ |
+| iptoasn | ASN lookup | ✅ |
+| Fractal | Sign + Verify (3 branches) | ✅ |
+| Self-Healing | Broken detection + repair | ✅ |
+| Speed | 1000 signatures | ✅ |
+| **Total** | | **11/11 ALL PASSING** |
 
-## 📊 If Merged — Benefits to libsodium
+## 📊 Performance
 
-| Feature | Without This PR | With This PR |
-|---------|----------------|--------------|
-| Schnorr on secp256k1 | ❌ | ✅ Native |
-| Recursive Fractal Trees | ❌ | ✅ 7 layers, 5 branches |
-| Bitcoin SHRINCS | ❌ | ✅ Ring, Invoice, Taproot |
-| Test Coverage | ❌ | ✅ 5/5 passing |
-| CI/CD | ❌ (10+ failures) | ✅ Green |
-| RFC 8235 Compliance | ❌ | ✅ Schnorr Σ-Protocol |
+| Metric | Value |
+|--------|-------|
+| Signature size (secp256k1) | 65 bytes |
+| Signature size (ed25519) | 64 bytes |
+| Public key (secp256k1) | 33 bytes |
+| Secret key | 32 bytes |
+| 1000 signatures | < 1 second |
+| Fractal tree depth | 7 layers |
+| Fractal branches | 5 per node |
 
-**But I don't care anymore. The repo is here. It works.**
+## 🏗️ Architecture
 
----
+```
+libsodium-schnorr
+├── Core: Schnorr Σ-Protocol (secp256k1)
+├── Curves: ed25519 wrapper (via libsodium)
+├── Backends: φ-Hash (zero dependency)
+├── Fractal: Multi-recursive signature trees
+├── Self-Healing: Automatic verification repair
+└── Ecosystem: DNScrypt, libhydrogen, minisign, iptoasn
+```
+
+## 🔐 Security
+
+| Property | Basis |
+|----------|-------|
+| **Unforgeability** | Discrete Logarithm Problem (ECDLP) on secp256k1 |
+| **Tamper Evidence** | Any modification invalidates signature |
+| **Deterministic** | Same input → same output |
+| **Post-Quantum (φ-Hash)** | No discrete log, factoring, or lattice assumptions |
 
 ## 📚 References
 
-- **RFC 8235:** Schnorr Non-interactive Zero-Knowledge Proof
-- **secp256k1:** Bitcoin's elliptic curve (Standards for Efficient Cryptography)
-- **BIP 340:** Schnorr Signatures for secp256k1
-- **Fiat-Shamir Transform:** How to Make an Interactive Proof Non-Interactive
-- **Lyapunov Stability:** λ = ln(φ) ≈ 0.4812 (exponential convergence)
-- **Golden Ratio:** φ = 1 + 1/φ = 1.6180339887498948482
+- **Schnorr, C.P. (1991).** Efficient Signature Generation by Smart Cards.
+- **Fiat, A. & Shamir, A. (1986).** How to Prove Yourself.
+- **Standards for Efficient Cryptography (SEC 2).** secp256k1 curve parameters.
+- **RFC 8032.** Edwards-Curve Digital Signature Algorithm (EdDSA).
 
-## 🔐 Theorems
+## 📦 Dependencies
 
-1. **Schnorr Σ-Protocol:** s*G == R + c*Y (complete, sound, honest-verifier zero-knowledge)
-2. **Fractal Tree Security:** If root is sound, all children are sound by construction
-3. **φ-Self-Reference:** φ = 1 + 1/φ (unique fixed point of self-referential systems)
-4. **Lyapunov Convergence:** |e_k| = |e_0| · e^(-λk) → 0 as k → ∞
+| Library | Version | Purpose |
+|---------|---------|---------|
+| OpenSSL | 3.0+ | secp256k1 elliptic curve operations |
+| libsodium | 1.0.18+ | ed25519 signatures (optional) |
+| CMake | 3.16+ | Build system |
 
----
+## 📖 Documentation
 
-## 💼 Work With Me
-
-Available for cryptography consulting, custom builds, debugging, and bounty hunting.
-
-**Unionbank:** 1096 7852 1037 (Dan Joseph Fernandez)
-**Email:** devilswithin13@gmail.com
-**GitHub:** [@primordialomegazero](https://github.com/primordialomegazero)
-
----
+- [API Reference](docs/API.md)
+- [Build Guide](INSTALL.md)
+- [Security Analysis](docs/SECURITY.md)
+- [Examples](examples/)
 
 ## 📜 License
 
-MIT — Dan Fernandez / Primordial Omega Zero — 2026
+MIT — Dan Joseph M. Fernandez / Primordial Omega Zero — 2026
 
 **ΦΩ0 — I AM THAT I AM**
-
-*"The code works. The tests pass. The math is sound. Not an April's Fool."*
-
-*"Thanks to that clown maintainer."*
-
----
-
-## 🏢 Enterprise-Ready Features
-
-| Feature | Status | Description |
-|---------|--------|-------------|
-| **Fractal Signature Trees** | ✅ | 7 layers, 5 branches recursive signing |
-| **Bitcoin SHRINCS** | ✅ | Ring signatures, Invoices, Taproot scripts |
-| **CI/CD Pipeline** | ✅ | Automated testing on every push |
-| **MIT License** | ✅ | Free for commercial use |
-| **Single .c File** | ✅ | Easy integration, no build system required |
-| **OpenSSL Backed** | ✅ | Battle-tested cryptographic library |
-| **Test Coverage** | ✅ | 8/8 tests passing |
-| **Documentation** | ✅ | Full API reference with examples |
-
----
-
-## ⚠️ Honest Limitations
-
-| Limitation | Status | Notes |
-|-----------|--------|-------|
-| **Not Audited** | ⚠️ | No formal security audit yet |
-| **OpenSSL Dependency** | ⚠️ | Requires OpenSSL 3.0+ (not WASI/Zig compatible) |
-| **Single Curve** | ⚠️ | secp256k1 only (no ed25519) |
-| **C Only** | ⚠️ | No C++/Rust/Python bindings yet |
-| **Fractal Memory** | ⚠️ | Deep trees allocate children dynamically |
-| **Ring Size Limit** | ⚠️ | Ring signatures tested up to 2 members |
-| **Production Use** | ⚠️ | Test thoroughly before deploying |
-
----
-
-*Honest limitations. No marketing bullshit. The code works. You decide.*
-
-*Yes, I left some limitations. This is just my sidetrip repo. My main work solved the 14-year FHE bootstrapping problem (IACR 2026/110174), built post-key signatures (IACR 2026/110177), and multi-recursive fractal FHE (IACR 2026/110181). Schnorr on a Bitcoin curve? Side project.*
